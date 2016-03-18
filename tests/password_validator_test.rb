@@ -99,6 +99,23 @@ class PasswordValidatorTest < Minitest::Test
 #------------
 
 
+  # doesn't include "password" in password, expecting success
+  def test_accepts_includes_non_alphanumeric
+    result = is_alphanumeric?("Hat123!!")
+    assert(result, "Hat123!! has non alphanumeric, should be valid")
+  end
+  
+  # doesn't include "password" in password, xpecting rejection
+  def test_rejects_only_alphnumeric
+    result = is_alphanumeric?("Hapasswordt@HAT!")
+    refute(result, "Hat@HAT! has no alphanumeric, should be valid")
+  end
+
+
+
+#------------
+
+
   def test_valid_password
     result = valid_password?("1Abils&a")
     assert(result, "'1Abils&a' should be valid")

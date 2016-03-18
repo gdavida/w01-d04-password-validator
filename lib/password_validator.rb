@@ -148,10 +148,9 @@ end
 # # ---------------------------------
 # #
 
-# def not_including_password?(password)
-#   password.length >= 8
-# end
-
+def doesnt_include_password?(str)
+    !str.include?("password")
+end
 
 
 
