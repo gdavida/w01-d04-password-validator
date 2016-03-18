@@ -6,8 +6,9 @@
 # 1 or more non-alphanumeric character
 # 1 or more numbers
 # Can't contain "password"
-# Bonus Rules to do if you get done with the previous rules and want to do more.
 
+
+# Bonus Rules to do if you get done with the previous rules and want to do more.
 # Can't contain the user's name
 # Can't contain sequences like "abc" or "jkl" or "456"
 
@@ -18,22 +19,13 @@ require "pry"
 
 ### RULE 1 -- MUST HAVE >= 1 UPCASE LETTER
 ##################################
-#   Takes two strings and turns them into one string
+#   Checks if string has at least one upcase letter
 #
-#   first: string with the first name
-#   last: string with last name
+#   + password: string the user enters 
 #
-#   returns one string
-#
-#   example:
-#   names_to_string("Davida", "Gaffney")
-# => DavidaGaffney
+#   returns boolean
 # ---------------------------------
 #
-  
-# Takes a string
-# Returns true or false depending on if the string has at least one capital
-# letter
 def at_least_one_caps?(password)
   password != password.downcase
 end
@@ -43,22 +35,13 @@ end
 
 ### RULE 2 -- MUST HAVE >= 1 DOWNCASE LETTER
 ##################################
-#   Takes two strings and turns them into one string
+#   Checks if string has at least one downcase letter
 #
-#   first: string with the first name
-#   last: string with last name
+#   + password: string the user enters 
 #
-#   returns one string
-#
-#   example:
-#   names_to_string("Davida", "Gaffney")
-# => DavidaGaffney
+#   returns boolean
 # ---------------------------------
 #
-  
-# Takes a string
-# Returns true or false depending on if the string has at least one lowercase
-# letter
 def at_least_one_downcase?(password)
   password != password.upcase
 end
@@ -66,16 +49,11 @@ end
 
 ### RULE 3 -- MUST HAVE >= 8 CHARACTERS
 ##################################
-#   Takes two strings and turns them into one string
+#   Checks if string has at least 8 characters
 #
-#   first: string with the first name
-#   last: string with last name
+#   + password: string the user enters 
 #
-#   returns one string
-#
-#   example:
-#   names_to_string("Davida", "Gaffney")
-# => DavidaGaffney
+#   returns boolean
 # ---------------------------------
 #
 def at_least_eight_characters?(password)
@@ -86,16 +64,11 @@ end
 
 ### RULE 4 MUST HAVE >= NON ALPHANUMERIC CHARACTERS
 ##################################
-#   Takes two strings and turns them into one string
+#   Checks if string has at least one non alphanumeric characters
 #
-#   first: string with the first name
-#   last: string with last name
+#   + password: string the user enters 
 #
-#   returns one string
-#
-#   example:
-#   names_to_string("Davida", "Gaffney")
-# => DavidaGaffney
+#   returns boolean
 # ---------------------------------
 #
 def is_alphanumeric?(password)
@@ -110,16 +83,11 @@ end
 
 # ### RULE 5 MUST HAVE >= 1 numbers
 # ##################################
-# #   Takes two strings and turns them into one string
-# #
-# #   first: string with the first name
-# #   last: string with last name
-# #
-# #   returns one string
-# #
-# #   example:
-# #   names_to_string("Davida", "Gaffney")
-# # => DavidaGaffney
+#   Checks if string has at least one number
+#
+#   + password: string the user enters 
+#
+#   returns boolean
 # # ---------------------------------
 # #
 
@@ -133,68 +101,52 @@ end
 
 # ### RULE 6 MUST NOT CONTAIN THE WORD "PASSWORD"
 # ##################################
-# #   Takes two strings and turns them into one string
-# #
-# #   first: string with the first name
-# #   last: string with last name
-# #
-# #   returns one string
-# #
-# #   example:
-# #   names_to_string("Davida", "Gaffney")
-# # => DavidaGaffney
+#   Checks if string does NOT include the word "password"
+#
+#   + password: string the user enters 
+#
+#   returns boolean
 # # ---------------------------------
 # #
 
 def doesnt_include_password?(password)
-    !password.include?("password")
+    !password.downcase.include?("password")
 end
 
 
 
 
 
-# ### BONUS RULE 6 MUST NOT CONTAIN THE USER'S NAME
+# ### BONUS RULE 7 MUST NOT CONTAIN THE USER'S NAME
 # ##################################
-# #   Takes two strings and turns them into one string
-# #
-# #   first: string with the first name
-# #   last: string with last name
-# #
-# #   returns one string
-# #
-# #   example:
-# #   names_to_string("Davida", "Gaffney")
-# # => DavidaGaffney
+#   Checks if string does not include thier username
+#
+#   + password: string the user enters 
+#
+#   returns boolean
 # # ---------------------------------
 # #
 
-# def not_including_username?(password)
-#   password.length >= 8
-# end
+def not_including_username?(password, username)
+  !password.downcase.include?(username)
+end
 
 
 
 
 
 
-# ### BONUS RULE 7 MUST NOT CONTAIN SEQUENCES OF NUMBERS OR LETTERS OF 3 IN A ROW OR MORE
+# ### BONUS RULE 8 MUST NOT CONTAIN SEQUENCES OF NUMBERS OR LETTERS OF 3 IN A ROW OR MORE
 # ##################################
-# #   Takes two strings and turns them into one string
-# #
-# #   first: string with the first name
-# #   last: string with last name
-# #
-# #   returns one string
-# #
-# #   example:
-# #   names_to_string("Davida", "Gaffney")
-# # => DavidaGaffney
+#   Checks if string has no more than 2 letters or numbers in sequence
+#
+#   + password: string the user enters 
+#
+#   returns boolean
 # # ---------------------------------
 # #
 
 # def no_sequences_three_or_more?(password)
-#   password.length >= 8
 # end
 
 
@@ -202,27 +154,22 @@ end
 
 ### FINAL RULE -- MUST PASS ** ALL ** OF THE OTHER RULES
 ##################################
-#   Takes two strings and turns them into one string
+#   Checks if string meets ALL of the requirements
 #
-#   first: string with the first name
-#   last: string with last name
+#   + password: string the user enters 
 #
-#   returns one string
-#
-#   example:
-#   names_to_string("Davida", "Gaffney")
-# => DavidaGaffney
+#   returns boolean
 # ---------------------------------
 #
 
-def valid_password?(password)
+def valid_password?(password, username)
 at_least_one_caps?(password) &&
 at_least_one_downcase?(password) &&
 at_least_eight_characters?(password) &&
 is_alphanumeric?(password) &&
 includes_number?(password) &&
-doesnt_include_password?(password)
-   
+doesnt_include_password?(password) &&
+not_including_username?(password, username)
 end
 
 
