@@ -35,10 +35,8 @@ require "pry"
 # Returns true or false depending on if the string has at least one capital
 # letter
 def at_least_one_caps?(password)
-  password != password.upcase
+  password != password.downcase
 end
-
-
 
 
 
@@ -59,10 +57,10 @@ end
 #
   
 # Takes a string
-# Returns true or false depending on if the string has at least one capital
+# Returns true or false depending on if the string has at least one lowercase
 # letter
 def at_least_one_downcase?(password)
-  password != password.downcase
+  password != password.upcase
 end
 
 
@@ -126,8 +124,8 @@ end
 # #
 
 
-def is_alphanumeric?(str)
-    str.count("0-9") > 0
+def includes_number?(password)
+    password.count("0-9") > 0
 end
 
 
@@ -148,8 +146,8 @@ end
 # # ---------------------------------
 # #
 
-def doesnt_include_password?(str)
-    !str.include?("password")
+def doesnt_include_password?(password)
+    !password.include?("password")
 end
 
 
@@ -202,17 +200,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ### FINAL RULE -- MUST PASS ** ALL ** OF THE OTHER RULES
 ##################################
 #   Takes two strings and turns them into one string
@@ -229,9 +216,13 @@ end
 #
 
 def valid_password?(password)
-  at_least_one_caps?(password) && 
-  at_least_eight_characters?(password) # &&
-  # at_least_one_lower_case?(password)
+at_least_one_caps?(password) &&
+at_least_one_downcase?(password) &&
+at_least_eight_characters?(password) &&
+is_alphanumeric?(password) &&
+includes_number?(password) &&
+doesnt_include_password?(password)
+   
 end
 
 
