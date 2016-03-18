@@ -66,7 +66,7 @@ def at_least_one_downcase?(password)
 end
 
 
-### RULE 2 -- MUST HAVE >= 8 CHARACTERS
+### RULE 3 -- MUST HAVE >= 8 CHARACTERS
 ##################################
 #   Takes two strings and turns them into one string
 #
@@ -87,24 +87,26 @@ end
 
 
 
-# ### RULE 4 MUST HAVE >= NON ALPHANUMERIC CHARACTERS
-# ##################################
-# #   Takes two strings and turns them into one string
-# #
-# #   first: string with the first name
-# #   last: string with last name
-# #
-# #   returns one string
-# #
-# #   example:
-# #   names_to_string("Davida", "Gaffney")
-# # => DavidaGaffney
-# # ---------------------------------
-# #
+### RULE 4 MUST HAVE >= NON ALPHANUMERIC CHARACTERS
+##################################
+#   Takes two strings and turns them into one string
+#
+#   first: string with the first name
+#   last: string with last name
+#
+#   returns one string
+#
+#   example:
+#   names_to_string("Davida", "Gaffney")
+# => DavidaGaffney
+# ---------------------------------
+#
 
-# def not_all_alphanumeric?(password)
-#   password.length >= 8
-# end
+
+
+def is_alphanumeric?(password)
+    !password.match(/^[[:alnum:]]+$/)
+end
 
 
 
