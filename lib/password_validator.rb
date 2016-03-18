@@ -80,7 +80,6 @@ end
 # => DavidaGaffney
 # ---------------------------------
 #
-
 def at_least_eight_characters?(password)
   password.length >= 8
 end
@@ -101,12 +100,13 @@ end
 # => DavidaGaffney
 # ---------------------------------
 #
-
-
-
 def is_alphanumeric?(password)
     !password.match(/^[[:alnum:]]+$/)
 end
+
+
+
+
 
 
 
@@ -125,9 +125,10 @@ end
 # # ---------------------------------
 # #
 
-# def at_least_one_number(password)
-#   password.length >= 8
-# end
+
+def is_alphanumeric?(str)
+    str.count("0-9") > 0
+end
 
 
 
