@@ -49,7 +49,7 @@ end
 
 ### RULE 3 -- MUST HAVE >= 8 CHARACTERS
 ##################################
-#   Checks if string has at least 8 characters
+#   Checks if string has at least 8 characters  
 #
 #   + password: string the user enters 
 #
@@ -122,6 +122,7 @@ end
 #   Checks if string does not include thier username
 #
 #   + password: string the user enters 
+#   + username: string the user enters
 #
 #   returns boolean
 # # ---------------------------------
@@ -157,6 +158,7 @@ end
 #   Checks if string meets ALL of the requirements
 #
 #   + password: string the user enters 
+#   + username: string the user enters
 #
 #   returns boolean
 # ---------------------------------
